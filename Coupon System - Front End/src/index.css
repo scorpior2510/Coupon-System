@@ -1,0 +1,992 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');
+@import "react-toastify/dist/ReactToastify.css";
+
+/* ||| Color Variables ************************************************/
+
+:root {
+  /* Background Colors */
+  --light-primary-background-color: #ffffff;
+  --light-secondary-background-color: #F1F6F9;
+  --dark-primary-background-color: #141a25;
+  --dark-secondary-background-color: #282f3e;
+  /* Text Colors */
+  --light-primary-text-color: #141a25;
+  --light-secondary-text-color: #ffffff;
+  --dark-primary-text-color: #ffffff;
+  --dark-secondary-text-color: #141a25;
+  /* Border Colors */
+  --light-border-color: #212A3E;
+  --light-background-border-merge-color: var(--light-border-color);
+  --dark-border-color: #5596c1;
+  --dark-background-border-merge-color: var(--dark-border-color);
+  
+  /* Button colors */
+  /* On Primary Background*/
+  --light-button-primary-background-color: hsl(220, 40%, 95%);
+  --light-button-primary-hover-background-color: #d4e3f2;
+  --dark-button-primary-background-color: hsl(210, 40%, 20%);
+  --dark-button-primary-hover-background-color: #35445d;
+  /* On Secondary Background*/
+  --light-button-secondary-background-color:hsl(201, 37%, 55%);
+  --light-button-secondary-hover-background-color: hsl(202, 48%, 60%);
+  --dark-button-secondary-background-color:hsl(221, 22%, 50%);
+  --dark-button-secondary-hover-background-color: hsl(221, 22%, 57%);
+  
+  
+  /*Warning Message*/
+  --light-warning-message-color: rgba(255, 0, 0, 0.851);
+  --dark-warning-message-color: rgba(240, 95, 95, 0.851);
+
+}
+
+/* ||| Global General ************************************************/
+
+html, body, #root {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Open Sans, Arial, sans-serif;
+  font-size: 1.2rem;
+  line-height: 1.7;
+}
+
+h2 {
+  margin: 0px 0px 15px 0px;
+}
+
+.light-mode .warning-message {
+  color: var(--light-warning-message-color);
+  font-weight: bold;
+}
+.dark-mode .warning-message {
+  color: var(--dark-warning-message-color);
+  font-weight: bold;
+}
+
+.light-mode .coupon-about-to-expire-message {
+  color: var(--light-warning-message-color);
+  font-weight: bold;
+}
+
+.dark-mode .coupon-about-to-expire-message {
+  color: var(--dark-warning-message-color);
+  font-weight: bold;
+}
+
+/* ||| Global Layout ************************************************/
+
+.App { 
+  display: grid;
+  grid-template-rows: repeat(24, 1fr);
+  grid-template-columns: repeat(24, 1fr);
+  height: 100%;
+}
+
+.Header {
+  grid-row: 3 span;
+  grid-column: 24 span;
+}
+
+.Menu {
+  grid-row: 18 span;
+  grid-column: 4 span;  
+}
+
+.Main {
+  grid-row: 18 span;
+  grid-column: 20 span;
+  overflow-y: auto;
+}
+
+.Footer {
+  grid-row: 3 span;
+  grid-column: 24 span;
+}
+
+/* ||| Buttons Links & Icons ************************************************/
+
+/*Buttons & Button-like-links: Global*/ 
+button {
+  border: none;
+  padding: 10px 22px;
+  margin-right: 5px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+.button-like-link {
+  border: none;
+  padding: 6px 20px;
+  margin-right: 5px;
+  border-radius: 5px;
+  cursor: pointer;
+  text-decoration: none; 
+  display: inline-block;
+  font-size: 1rem;
+}
+
+.dark-mode button, 
+.dark-mode .button-like-link {
+  background-color: var(--dark-button-primary-background-color);
+  color: var(--dark-primary-text-color);
+}
+
+.dark-mode button:hover, 
+.dark-mode .button-like-link:hover {
+  background-color: var(--dark-button-primary-hover-background-color);
+}
+
+.light-mode button, 
+.light-mode .button-like-link {
+  background-color: var(--light-button-primary-background-color);
+  color: var(--light-primary-text-color);
+}
+
+.light-mode button:hover, 
+.light-mode .button-like-link:hover {
+  background-color: var(--light-button-primary-hover-background-color);
+}
+
+/*Buttons & Button-like-links: Specific*/
+#lighting-mode-button {
+  border-radius: 50%;
+  font-size: 1.7rem;
+  padding: 12px 17px 10px 17px;
+  margin: 0px;
+}
+#authMenu-link {
+  transition: background-color 0.2s ease, color 0.2s ease;
+  padding: 7px 20px;
+  margin-right: 0px;
+  font-size: 1.2rem;
+}
+
+/*Buttons & Button-like-links In forms & In cards: Global*/
+.light-mode .form-container button, 
+.light-mode .form-container .button-like-link, 
+.light-mode .card-view-container button {
+  background-color: var(--light-button-secondary-background-color); 
+  color: var(--light-secondary-text-color);
+}
+
+.light-mode .form-container button:hover, 
+.light-mode .form-container .button-like-link:hover,
+.light-mode .card-view-container button:hover {
+  background-color: var(--light-button-secondary-hover-background-color);
+}
+
+.dark-mode .form-container button, 
+.dark-mode .form-container .button-like-link,
+.dark-mode .card-view-container button {
+  background-color: var(--dark-button-secondary-background-color); 
+  color: var(--dark-secondary-text-color); 
+}
+
+.dark-mode .form-container button:hover, 
+.dark-mode .form-container .button-like-link:hover,
+.dark-mode .card-view-container button:hover {
+  background-color: var(--dark-button-secondary-hover-background-color);
+}
+
+/*Buttons for confirmation and prompt screens*/
+.logout-confirmation-container button,
+.purchase-confirmation-container,
+.success-prompt-container button,
+.delete-confirmation-container button {
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.light-mode .logout-confirmation-container button,
+.light-mode .purchase-confirmation-container button,
+.light-mode .success-prompt-container button,
+.light-mode .delete-confirmation-container button {
+  background-color: var(--light-secondary-background-color); 
+  border: 1px solid var(--light-border-color); 
+}
+
+.dark-mode .logout-confirmation-container button,
+.dark-mode .purchase-confirmation-container button,
+.dark-mode .success-prompt-container button,
+.dark-mode .delete-confirmation-container button {
+  background-color: var(--dark-secondary-background-color); /* Dark secondary background color for buttons */
+  border: 1px solid var(--dark-border-color); /* Dark border color for buttons */
+}
+
+.light-mode .logout-confirmation-container button:hover,
+.light-mode .purchase-confirmation-container button:hover,
+.light-mode .success-prompt-container button:hover,
+.light-mode .delete-confirmation-container button:hover {
+  background-color: var(--light-button-primary-hover-background-color); /* Dark mode blue background color on hover */
+  
+}
+
+.dark-mode .logout-confirmation-container button:hover,
+.dark-mode .purchase-confirmation-container button:hover,
+.dark-mode .success-prompt-container button:hover,
+.dark-mode .delete-confirmation-container button:hover {
+  background-color: var(--dark-button-primary-hover-background-color); /* Dark mode blue background color on hover */
+}
+
+/*Links: number links*/
+.light-mode a.number-link {
+  text-decoration: underline;
+  color: var(--light-primary-text-color);
+}
+
+.dark-mode a.number-link {
+  text-decoration: underline;
+  color: var(--dark-primary-text-color);
+}
+
+/*Links: Sidebar Menu*/
+.menu-container a {
+  margin-top: 10px;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.light-mode .menu-container a {
+  color: var(--light-primary-text-color); 
+}
+
+.dark-mode .menu-container a {
+  color: var(--dark-primary-text-color);
+}
+
+.menu-container a:hover {
+  border-radius: 5px;
+  padding: 8px;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.light-mode .menu-container a:hover {
+  color: var(--light-secondary-text-color);
+  background-color: var(--light-button-secondary-hover-background-color); 
+}
+
+.dark-mode .menu-container a:hover {
+  color: var(--dark-secondary-text-color); 
+  background-color: var(--dark-button-secondary-hover-background-color);
+}
+
+/* Add icons to links */
+.menu-container a::before {  
+  content: attr(data-icon);
+  margin-right: 10px;
+}
+
+/* ||| Dark & Light Global ************************************************/
+
+.dark-mode {
+  background-color: var(--dark-primary-background-color);
+  color: var(--dark-primary-text-color);
+}
+.light-mode {
+  background-color: var(--light-primary-background-color);
+  color: var(--light-primary-text-color);
+}
+
+.dark-mode .Menu {
+  background-color: var(--dark-secondary-background-color);
+  border-right: 2px solid var(--dark-border-color);
+}
+.light-mode .Menu {
+  background-color: var(--light-secondary-background-color);
+  border-right: 2px solid var(--light-border-color);
+}
+
+.dark-mode .Header {
+  border-bottom: 2px solid var(--dark-border-color);
+}
+.light-mode .Header {
+  border-bottom: 2px solid var(--light-border-color);
+}
+
+.dark-mode .Footer {
+  border-top: 2px solid var(--dark-border-color);
+}
+.light-mode .Footer {
+  border-top: 2px solid var(--light-border-color);
+}
+
+/* ||| Footer & Related ************************************************/
+
+.Footer {
+  padding: 20px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.ContactInformation {
+  font-size: 2.5rem ;
+}
+.ContactInformation * {
+  padding: 7px;
+}
+
+/* ||| Header ************************************************/
+
+.Header {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.logo-container {
+  grid-column: span 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.logo-container img {
+  max-width: 130px;
+}
+
+.title-container {
+  grid-column: span 1;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  
+}
+
+.title-container h1 {
+  margin: 0 20px;
+}
+
+.title-icon {
+  font-size: 3rem;
+}
+
+.header-menu-container {
+  grid-column: span 1;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content:center;
+}
+
+.AuthMenu {
+  margin: 0 15px;
+}
+
+.login-details-container {
+  display: flex;
+  flex-direction: column;
+  align-items:center;
+  justify-content: space-around;
+}
+
+.login-details-container * {
+  margin: 0px;
+}
+
+/* ||| Menu ************************************************/
+
+.menu-container {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ||| Main ************************************************/
+
+.Main {
+  padding: 20px;  
+}
+
+/* ||| About ************************************************/
+
+.About {
+  padding: 0px 20px;
+}
+
+.About p {
+  line-height: 2;
+  padding: 10px;
+}
+
+.About p::first-letter {
+  font-size: 1.6rem; 
+  font-weight: bold; 
+  margin-right: 5px; 
+}
+
+/* ||| Home ************************************************/
+
+/*Global*/
+.home-link-area-container {
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+  margin-bottom: 25px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 5px;
+}
+
+.parent {
+  height: 140px;
+  width: 560px;
+  font-size: 2.5rem;
+}
+
+.child {
+  height: 100px;
+  width: 400px;
+  font-size: 2rem;
+  border-radius: 20% 10%;
+}
+
+.home-link-area-container a {
+  cursor: pointer;
+  text-decoration: none; 
+  font-weight: 400;
+  color: var(--light-primary-text-color);
+}
+
+.light-mode .home-link-area-container {
+  background: url("/assets/images/logos/layered-steps-haikei_light.png");
+  color: var(--light-primary-text-color);
+}
+
+.dark-mode .home-link-area-container {
+  background: url("/assets/images/logos/layered-steps-haikei_dark.png");
+  color: var(--dark-primary-text-color);
+}
+
+.home-link-area-container a:hover {
+  text-decoration: underline;
+}
+
+.light-mode .home-link-area-container a {
+  color: var(--light-primary-text-color);
+}
+
+.dark-mode .home-link-area-container a {
+  color: var(--dark-primary-text-color);
+}
+
+/*Home Default, Company, Customer*/
+.HomeContentDefault, .HomeContentCompany, .HomeContentCustomer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 30px;
+}
+
+/*Home Admin*/
+.HomeContentAdmin {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  margin-top: 30px;
+}
+
+.HomeContentAdmin * {
+  display: flex;
+  flex-direction: column;
+  align-items: center;  
+}
+
+/* ||| EmptyView, page404, PageServerDown ************************************************/
+
+.EmptyView {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.4rem;
+  margin-top: 50px;
+}
+
+.EmptyView img {
+  max-width: 45%;
+}
+
+.Page404, 
+.PageServerDown {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.4rem;
+}
+
+.PageServerDown img, 
+.Page404 img {
+  margin-top: 60px;
+  width: 70%;
+}
+
+/* ||| Forms ************************************************/
+
+/*Global*/
+.form-container {
+  max-width: 600px;
+  margin: 20px auto;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.form-container h2 {
+  margin-bottom: 0px;
+}
+
+.light-mode .form-container {
+  background-color: var(--light-secondary-background-color); 
+  border: 1px solid var(--light-border-color);
+}
+
+.dark-mode .form-container {
+  background-color: var(--dark-secondary-background-color); 
+  border: 1px solid var(--dark-border-color);
+}
+
+.form-container ul {
+  list-style-type: none; 
+  padding-left: 0px;
+  margin: 10px;
+}
+
+.form-container li {
+  margin-top: 8px;
+}
+
+.form-container li:last-child {
+  margin-top: 13px;
+}
+
+.form-container label p {
+  font-weight: bold;
+  margin: 3px;
+}
+
+/*Handling Different types of inputs*/
+.form-container input[type="radio"] {
+  display: none;
+}
+
+.form-container input[type="text"], 
+.form-container input[type="password"], 
+.form-container input[type="email"] {
+  width: 70%;
+  padding: 10px;
+  margin-bottom: 0px;
+  border-radius: 5px;
+}
+
+.form-container input[type="date"],
+.form-container input[type="number"] {
+  width: 35%;
+  padding: 10px;
+  margin-bottom: 0px;
+  border-radius: 5px;
+}
+
+.form-container textarea {
+  width: 70%;
+  padding: 10px;
+  border-radius: 5px;
+  margin-bottom: 0px;
+  resize: vertical; 
+}
+
+.form-container select {
+  width: 39%;
+  padding: 10px;
+  border-radius: 5px;
+  margin-bottom: 0px;
+  cursor: pointer;
+}
+
+.light-mode .form-container input[type="text"], 
+.light-mode .form-container input[type="number"], 
+.light-mode .form-container input[type="password"],
+.light-mode .form-container input[type="email"],
+.light-mode .form-container input[type="date"],
+.light-mode .form-container textarea,
+.light-mode .form-container select {
+  background-color: var(--light-primary-background-color);
+  color: var(--light-primary-text-color);
+  border: 1px solid var(--light-border-color);
+}
+
+.dark-mode .form-container input[type="text"], 
+.dark-mode .form-container input[type="number"], 
+.dark-mode .form-container input[type="password"],
+.dark-mode .form-container input[type="email"], 
+.dark-mode .form-container input[type="date"],
+.dark-mode .form-container textarea,
+.dark-mode .form-container select {
+  background-color: var(--dark-primary-background-color);
+  color: var(--dark-primary-text-color);
+  border: 1px solid var(--dark-border-color);
+}
+
+.form-container input[id="id"] {
+  width: 35%;
+}
+
+/*Validation Errors*/
+.form-container .form-error-message {
+  margin: 3px;
+}
+.light-mode .form-container .form-error-message {
+  margin: 3px;
+  color: var(--light-warning-message-color);
+}
+.dark-mode .form-container .form-error-message {
+  margin: 3px;
+  color: var(--dark-warning-message-color);
+}
+
+/*Disabled Inputs*/
+.light-mode .form-container input:disabled {
+  background-color: var(--light-secondary-background-color); /* Light mode background color */
+}
+
+.dark-mode .form-container input:disabled {
+  background-color: var(--dark-secondary-background-color); /* Dark mode background color */
+}
+
+/*Login Client Type Radio Choices*/
+.form-container .client-type-choice-container label {
+  display: inline-block;
+  padding: 3px 10px;
+  cursor: pointer;
+  border-radius: 5px;
+  margin-right: 10px;
+  transition: background-color 0.2s ease, color 0.2s ease, border 0.2s ease;  
+}
+
+.light-mode .form-container .client-type-choice-container label {
+  border: 1px solid var(--light-border-color);
+  background-color: var(--light-secondary-background-color);
+}
+
+.dark-mode .form-container .client-type-choice-container label {
+  border: 1px solid var(--dark-border-color);
+  background-color: var(--dark-secondary-background-color);
+}
+
+.light-mode .form-container .client-type-choice-container input[type="radio"]:checked + label {
+  background-color: var(--light-primary-background-color); 
+  border: 1px solid var(--light-border-color); 
+}
+.dark-mode .form-container .client-type-choice-container input[type="radio"]:checked + label {
+  background-color: var(--dark-primary-background-color); 
+  border: 1px solid var(--dark-border-color); 
+}
+
+/* ||| Tables ************************************************/
+
+.table-view-container {
+  max-width: 100%;
+  overflow-x: auto;
+  margin: 20px;
+}
+
+.table-view-container table {
+  border-collapse: collapse;
+  table-layout: fixed;
+}
+
+.light-mode .table-view-container table {
+  border: 1px solid var(--light-border-color);
+}
+
+.dark-mode .table-view-container table {
+  border: 1px solid var(--dark-border-color);
+}
+
+.table-view-container th, 
+.table-view-container tfoot {
+  font-weight: bold;
+  padding: 10px;
+  text-align: left;
+}
+
+/*CompanyListTableView: (5 Columns)*/
+.CompanyListTableView.table-view-container th:nth-child(1) {
+  width: 15%;
+}
+.CompanyListTableView.table-view-container th:nth-child(2) {
+  width: 10%;
+}
+.CompanyListTableView.table-view-container th:nth-child(3) {
+  width: 25%;
+}
+.CompanyListTableView.table-view-container th:nth-child(4) {
+  width: 32%;
+}
+.CompanyListTableView.table-view-container th:nth-child(5) {
+  width: 18%;
+}
+
+/*CustomerListTableView: (5 Columns)*/
+.CustomerListTableView.table-view-container th:nth-child(1) {
+  width: 13%;
+}
+.CustomerListTableView.table-view-container th:nth-child(2) {
+  width: 7%;
+}
+.CustomerListTableView.table-view-container th:nth-child(3) {
+  width: 30%;
+}
+.CustomerListTableView.table-view-container th:nth-child(4) {
+  width: 32%;
+}
+.CustomerListTableView.table-view-container th:nth-child(5) {
+  width: 18%;
+}
+
+/*CouponListTableView: (7 Columns)*/
+.CouponListTableView.table-view-container th:nth-child(1) {
+  width: 10%;
+}
+.CouponListTableView.table-view-container th:nth-child(2) {
+  width: 15%;
+}
+.CouponListTableView.table-view-container th:nth-child(3) {
+  width: 25%;
+}
+.CouponListTableView.table-view-container th:nth-child(4) {
+  width: 12.5%;
+}
+.CouponListTableView.table-view-container th:nth-child(5) {
+  width: 12.5%;
+}
+.CouponListTableView.table-view-container th:nth-child(6) {
+  width: 12.5%;
+}
+.CouponListTableView.table-view-container th:nth-child(7) {
+  width: 12.5%;
+}
+
+/***************/
+.light-mode .table-view-container th {
+  border-bottom: 2px solid var(--light-border-color);
+  background-color: var(--light-border-color);
+  color: var(--light-secondary-text-color);
+}
+
+.dark-mode .table-view-container th {
+  border-bottom: 2px solid var(--dark-border-color);
+  background-color: var(--dark-border-color);
+  color: var(--dark-secondary-text-color); 
+}
+
+.light-mode .table-view-container tfoot {
+  border-top: 5px double var(--light-border-color);
+}
+
+.dark-mode .table-view-container tfoot {
+  border-top: 5px double var(--dark-border-color);
+}
+
+.light-mode .table-view-container tr:nth-child(even) {
+  background-color: var(--light-secondary-background-color)
+}
+
+.dark-mode .table-view-container tr:nth-child(even) {
+  background-color: var(--dark-secondary-background-color)
+}
+
+.row-view-container td,
+.table-view-container tfoot td {
+  padding: 10px;
+}
+
+.light-mode .row-view-container td {
+  border-bottom: 1px solid var(--light-border-color);
+}
+
+.dark-mode .row-view-container td {
+  border-bottom: 1px solid var(--dark-border-color);
+}
+
+.row-view-container a {
+  text-decoration: none;
+  margin-right: 5px;
+}
+
+.row-view-container a:hover {
+  padding: 2px 5px;
+}
+
+/* ||| Cards ************************************************/
+
+.filter-container {
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+.filter-container * {
+  margin-bottom: 4px;
+}
+
+/****************/
+
+.card-list-view-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+  gap: 20px;
+}
+
+.card-view-container {
+  padding: 0px 20px 20px 20px;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.light-mode .card-view-container {
+  background-color: var(--light-secondary-background-color);
+  border: 1px solid var(--light-border-color);
+}
+
+.dark-mode .card-view-container {
+  background-color: var(--dark-secondary-background-color);
+  border: 1px solid var(--dark-border-color);
+}
+
+.card-view-container h3 {
+  margin-top: 10px;
+  margin-bottom: 0px;
+}
+.card-view-container p {
+  margin: 10px 5px;
+}
+
+.card-view-container img {
+  max-width: 100%;
+  border-radius: 5px;
+  margin-top: 5px;
+}
+
+/*********/
+
+.card-list-view-container.small-cards {
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+}
+.card-list-view-container.medium-cards {
+  grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+}
+.card-list-view-container.big-cards {
+  grid-template-columns: repeat(auto-fill, minmax(600px, 1fr));
+}
+
+.coupon-layout-grid-section {
+  display: inline-flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.CouponLayoutGridButtons {
+  margin-bottom: -7px;
+}
+
+.CouponLayoutGridButtons button {
+  padding: 8px 12px 0px 14px;
+  margin-top: -5px;
+  font-size: 1.6rem;
+}
+
+/****************/
+
+.dimmed-coupon {
+  opacity: 0.4; 
+  pointer-events: none; 
+}
+
+.dimmed-coupon::before {
+  color: white; 
+  background-color: rgba(0, 0, 0, 0.9); 
+  content: "Already Owned";
+  padding: 5px; 
+  border-radius: 5px; 
+  font-size: 0.75rem; 
+}
+
+.out-of-stock-coupon {
+  opacity: 0.4; 
+  pointer-events: none; 
+}
+
+.out-of-stock-coupon::before {
+  color: white; 
+  background-color: rgba(96, 0, 0, 0.9); 
+  content: "Out of stock";
+  padding: 5px; 
+  border-radius: 5px; 
+  font-size: 0.75rem; 
+}
+
+/* ||| Prompts & Confirmations ************************************************/
+
+.logout-confirmation-container,
+.purchase-confirmation-container,
+.delete-confirmation-container, 
+.success-prompt-container {
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin: 20px auto;
+  max-width: 700px;
+  border-radius: 5px;
+  padding: 20px;
+  text-align: center;
+  width: 50%;
+}
+
+.logout-confirmation-container,
+.delete-confirmation-container,
+.purchase-confirmation-container {
+  text-align: left;
+}
+
+.CouponPurchaseSuccessPrompt {
+  text-align: center;
+}
+
+.purchase-confirmation-container .card-view-container {
+  max-width: 500px;
+  margin-bottom: 15px;
+}
+
+.light-mode .logout-confirmation-container,
+.light-mode .purchase-confirmation-container,
+.light-mode .success-prompt-container, 
+.light-mode .delete-confirmation-container {
+  background-color: var(--light-button-primary-background-color);
+  border: 2px solid var(--light-border-color);
+}
+
+.dark-mode .logout-confirmation-container,
+.dark-mode .purchase-confirmation-container,
+.dark-mode .success-prompt-container,
+.dark-mode .delete-confirmation-container {
+  background-color: var(--dark-button-primary-background-color);
+  border: 2px solid var(--dark-border-color); 
+}
+
+.TitleWithLogo {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: -12px;
+  justify-content: center;
+}
+
+.TitleWithLogo img {
+  height: 3.2rem;
+  margin-right: 12px;
+}

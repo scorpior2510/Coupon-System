@@ -1,0 +1,8 @@
+export { default as About } from "./About/About"
+export { default as Home } from "./Home/Home"
+export { default as HomeContentAdmin } from "./Home/HomeContentAdmin/HomeContentAdmin"
+export { default as HomeContentCustomer } from "./Home/HomeContentCustomer/HomeContentCustomer"
+export { default as HomeContentCompany } from "./Home/HomeContentCompany/HomeContentCompany"
+export { default as HomeContentDefault } from "./Home/HomeContentDefault/HomeContentDefault"
+export { default as Page404 } from "./Page404/Page404"
+export { default as PageServerDown } from "./PageServerDown/PageServerDown"
