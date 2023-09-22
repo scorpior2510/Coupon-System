@@ -1,5 +1,8 @@
 # coupon-system-front
 
+## Running the project
+* After downloading the project from github, run command: npm install (will download dependencies the project use)
+
 ## About
 * Or Cohen
 * scorpior2510@outlook.com
