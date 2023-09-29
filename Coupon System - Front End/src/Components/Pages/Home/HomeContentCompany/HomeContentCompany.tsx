@@ -5,14 +5,13 @@ import { Link } from "react-router-dom";
 function HomeContentCompany(): JSX.Element {
   return (
     <div className="HomeContentCompany">
-      <div className="home-link-area-container parent">
-        <Link to={"/api/company/details"}>Account Details</Link>
+      <div className="home-link-area-container dashboard-stat-container">
+        <span>Coupons</span>
+        <Link to={"/api/company/coupons"}>10</Link>
       </div>
-      <div className="home-link-area-container parent">
-        <Link to={"/api/company/coupons"}>Coupons</Link>
-      </div>
-      <div className="home-link-area-container child">
-        <Link to={"/api/company/coupons/add"}>Add Coupon</Link>
+      <div className="home-link-area-container dashboard-stat-container">
+        <span>Purchases</span>
+        <Link to={"/api/company/coupons"}>250</Link>
       </div>
     </div>
   );

@@ -153,7 +153,7 @@ function LoginForm(): JSX.Element {
             <p className="form-error-message"> {errors.password?.message}</p>
           </li>
           <li>
-            <button type="submit" disabled={isSubmitting}>
+            <button type="submit" className="btn btn-form btn-200" disabled={isSubmitting}>
               Log in
             </button>
           </li>

@@ -12,7 +12,7 @@ function LightingModeButton(): JSX.Element {
   const isDarkMode: boolean = useSelector(selectIsDarkMode);
 
   return (
-    <button id="lighting-mode-button" onClick={changeLightingMode}>
+    <button className="btn btn-100 btn-theme" onClick={changeLightingMode}>
       {isDarkMode ? <MdLightMode /> : <MdModeNight />}
     </button>
   );

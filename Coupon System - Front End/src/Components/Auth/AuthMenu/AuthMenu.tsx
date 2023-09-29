@@ -17,12 +17,12 @@ function AuthMenu(): JSX.Element {
       {isUserLoggedIn ? (
         <div className="login-details-container">
           <p>Welcome {loggedInUserDetails.email} </p>
-          <p><Link to={"/api/auth/logout"} id="authMenu-link" className="button-like-link">Log out</Link></p>
+          <p><Link to={"/api/auth/logout"} id="authMenu-link" className="btn btn-100 btn-auth">Log out</Link></p>
         </div>
       ) : (
         <p>
           <span>Hello Guest </span>
-          <Link to={"/api/auth/login"} id="authMenu-link" className="button-like-link">Log in</Link>
+          <Link to={"/api/auth/login"} id="authMenu-link" className="btn btn-100 btn-auth">Log in</Link>
         </p>
       )}
     </div>

@@ -1,51 +1,87 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');
 @import "react-toastify/dist/ReactToastify.css";
 
-/* ||| Color Variables ************************************************/
-
+/*Global Variables*/
 :root {
-  /* Background Colors */
-  --light-primary-background-color: #ffffff;
-  --light-secondary-background-color: #F1F6F9;
-  --dark-primary-background-color: #141a25;
-  --dark-secondary-background-color: #282f3e;
-  /* Text Colors */
-  --light-primary-text-color: #141a25;
-  --light-secondary-text-color: #ffffff;
-  --dark-primary-text-color: #ffffff;
-  --dark-secondary-text-color: #141a25;
-  /* Border Colors */
-  --light-border-color: #212A3E;
-  --light-background-border-merge-color: var(--light-border-color);
-  --dark-border-color: #5596c1;
-  --dark-background-border-merge-color: var(--dark-border-color);
-  
-  /* Button colors */
-  /* On Primary Background*/
-  --light-button-primary-background-color: hsl(220, 40%, 95%);
-  --light-button-primary-hover-background-color: #d4e3f2;
-  --dark-button-primary-background-color: hsl(210, 40%, 20%);
-  --dark-button-primary-hover-background-color: #35445d;
-  /* On Secondary Background*/
-  --light-button-secondary-background-color:hsl(201, 37%, 55%);
-  --light-button-secondary-hover-background-color: hsl(202, 48%, 60%);
-  --dark-button-secondary-background-color:hsl(221, 22%, 50%);
-  --dark-button-secondary-hover-background-color: hsl(221, 22%, 57%);
-  
-  
-  /*Warning Message*/
-  --light-warning-message-color: rgba(255, 0, 0, 0.851);
-  --dark-warning-message-color: rgba(240, 95, 95, 0.851);
+  --light-primary-bg-100: #F9F9FB;
+  --light-btn-bg-100: hsl(220, 40%, 95%);
+  --light-btn-bg-hvr-100: #d4e3f2;
+  --light-dashboard-stat-bg-100: hsl(201, 70%, 65%);
 
+  --light-secondary-bg-200: #F1F6F9;
+  --light-btn-bg-200: hsl(201, 37%, 55%);
+  --light-btn-bg-hvr-200: hsl(202, 48%, 60%);
+
+  --light-border: #212A3E;
+  --light-primary-txt: var(--dark-primary-bg-100);
+  --light-secondary-txt: var(--light-primary-bg-100);
+  --light-warning-msg-txt: rgba(255, 0, 0, 0.851);
+
+  --dark-primary-bg-100: #141a25;
+  --dark-btn-bg-100: hsl(210, 40%, 20%);
+  --dark-btn-bg-hvr-100: #35445d;
+  --dark-dashboard-stat-bg-100: hsl(201, 70%, 65%);
+
+  --dark-secondary-bg-200: #282f3e;
+  --dark-btn-bg-200: hsl(221, 22%, 50%);
+  --dark-btn-bg-hvr-200: hsl(221, 22%, 57%);
+
+  --dark-border: #5596c1;
+  --dark-primary-txt: var(--light-primary-bg-100);
+  --dark-secondary-txt: var(--dark-primary-bg-100);
+  --dark-warning-msg-txt: rgba(240, 95, 95, 0.851);
 }
 
-/* ||| Global General ************************************************/
+/*Local Light Theme Variables*/
+.light {
+  --primary-bg-100: var(--light-primary-bg-100);
+  --btn-bg-100: var(--light-btn-bg-100);
+  --btn-bg-hvr-100: var(--light-btn-bg-hvr-100);
+  --dashboard-stat-bg-100: var(--light-dashboard-stat-bg-100);
+
+  --secondary-bg-200: var(--light-secondary-bg-200);
+  --btn-bg-200: var(--light-btn-bg-200);
+  --btn-bg-hvr-200: var(--light-btn-bg-hvr-200);
+
+  --border: var(--light-border);
+  --primary-txt: var(--light-primary-txt);
+  --secondary-txt: var(--light-secondary-txt);
+  --warning-msg-txt: var(--light-warning-msg-txt);
+}
+
+/*Local Dark Theme Variables*/
+.dark {
+  --primary-bg-100: var(--dark-primary-bg-100);
+  --btn-bg-100: var(--dark-btn-bg-100);
+  --btn-bg-hvr-100: var(--dark-btn-bg-hvr-100);
+  --dashboard-stat-bg-100: var(--dark-dashboard-stat-bg-100);
+
+  --secondary-bg-200: var(--dark-secondary-bg-200);
+  --btn-bg-200: var(--dark-btn-bg-200);
+  --btn-bg-hvr-200: var(--dark-btn-bg-hvr-200);
+
+  --border: var(--dark-border);
+  --primary-txt: var(--dark-primary-txt);
+  --secondary-txt: var(--dark-secondary-txt);
+  --warning-msg-txt: var(--dark-warning-msg-txt);
+}
+
+/* Global Reset*/
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/*Global General*/
+.App {
+  background-color: var(--primary-bg-100);
+  color: var(--primary-txt);
+}
 
 html, body, #root {
   width: 100%;
   height: 100%;
-  margin: 0;
-  padding: 0;
 }
 
 body {
@@ -58,6 +94,23 @@ h2 {
   margin: 0px 0px 15px 0px;
 }
 
+
+/**/
+.Menu {
+  border-right: 2px solid var(--border);
+  background-color: var(--secondary-bg-200);
+}
+
+.Header {
+  border-bottom: 2px solid var(--border);
+}
+
+.Footer {
+  border-top: 2px solid var(--border);
+}
+/**/
+
+/*Utils*/
 .light-mode .warning-message {
   color: var(--light-warning-message-color);
   font-weight: bold;
@@ -76,6 +129,201 @@ h2 {
   color: var(--dark-warning-message-color);
   font-weight: bold;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*Buttons, Links & Menus*/
+.btn {
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  display: inline-block;
+  text-decoration: none;
+}
+
+.btn-100 {
+  background-color: var(--btn-bg-100);
+  color: var(--primary-txt);
+}
+.btn-100:hover {
+  background-color: var(--btn-bg-hvr-100);
+}
+.btn-200 {
+  background-color: var(--btn-bg-200);
+  color: var(--primary-txt);
+}
+.btn-200:hover {
+  background-color: var(--btn-bg-hvr-200);
+}
+
+.btn-auth {
+  transition: background-color 0.2s ease, color 0.2s ease;
+  padding: 5px 18px;
+  margin: 0;
+}
+
+.btn-theme {
+  border-radius: 50%;
+  width: 57px;
+  height: 57px;
+}
+
+.btn-theme svg {
+  height: 45%;
+  width: auto;
+}
+
+.btn-form {
+  padding: 8px 18px;
+  margin-right: 5px;
+}
+
+
+
+
+
+
+
+
+
+
+
+.logout-confirmation-container button,
+.purchase-confirmation-container,
+.success-prompt-container button,
+.delete-confirmation-container button {
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.light-mode .logout-confirmation-container button,
+.light-mode .purchase-confirmation-container button,
+.light-mode .success-prompt-container button,
+.light-mode .delete-confirmation-container button {
+  background-color: var(--light-secondary-background-color); 
+  border: 1px solid var(--light-border-color); 
+}
+
+.dark-mode .logout-confirmation-container button,
+.dark-mode .purchase-confirmation-container button,
+.dark-mode .success-prompt-container button,
+.dark-mode .delete-confirmation-container button {
+  background-color: var(--dark-secondary-background-color); 
+  border: 1px solid var(--dark-border-color); 
+}
+
+.light-mode .logout-confirmation-container button:hover,
+.light-mode .purchase-confirmation-container button:hover,
+.light-mode .success-prompt-container button:hover,
+.light-mode .delete-confirmation-container button:hover {
+  background-color: var(--light-button-primary-hover-background-color);
+  
+}
+
+.dark-mode .logout-confirmation-container button:hover,
+.dark-mode .purchase-confirmation-container button:hover,
+.dark-mode .success-prompt-container button:hover,
+.dark-mode .delete-confirmation-container button:hover {
+  background-color: var(--dark-button-primary-hover-background-color); 
+}
+/*
+
+
+.light-mode a.number-link {
+  text-decoration: underline;
+  color: var(--light-primary-text-color);
+}
+
+.dark-mode a.number-link {
+  text-decoration: underline;
+  color: var(--dark-primary-text-color);
+}
+
+
+.menu-container a {
+  margin-top: 10px;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.light-mode .menu-container a {
+  color: var(--light-primary-text-color); 
+}
+
+.dark-mode .menu-container a {
+  color: var(--dark-primary-text-color);
+}
+
+.menu-container a:hover {
+  border-radius: 5px;
+  padding: 8px;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.light-mode .menu-container a:hover {
+  color: var(--light-secondary-text-color);
+  background-color: var(--light-button-secondary-hover-background-color); 
+}
+
+.dark-mode .menu-container a:hover {
+  color: var(--dark-secondary-text-color); 
+  background-color: var(--dark-button-secondary-hover-background-color);
+}
+
+
+.menu-container a::before {  
+  content: attr(data-icon);
+  margin-right: 10px;
+} */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 /* ||| Global Layout ************************************************/
 
@@ -107,212 +355,9 @@ h2 {
   grid-column: 24 span;
 }
 
-/* ||| Buttons Links & Icons ************************************************/
-
-/*Buttons & Button-like-links: Global*/ 
-button {
-  border: none;
-  padding: 10px 22px;
-  margin-right: 5px;
-  border-radius: 5px;
-  cursor: pointer;
-  font-size: 1rem;
-}
-
-.button-like-link {
-  border: none;
-  padding: 6px 20px;
-  margin-right: 5px;
-  border-radius: 5px;
-  cursor: pointer;
-  text-decoration: none; 
-  display: inline-block;
-  font-size: 1rem;
-}
-
-.dark-mode button, 
-.dark-mode .button-like-link {
-  background-color: var(--dark-button-primary-background-color);
-  color: var(--dark-primary-text-color);
-}
-
-.dark-mode button:hover, 
-.dark-mode .button-like-link:hover {
-  background-color: var(--dark-button-primary-hover-background-color);
-}
-
-.light-mode button, 
-.light-mode .button-like-link {
-  background-color: var(--light-button-primary-background-color);
-  color: var(--light-primary-text-color);
-}
-
-.light-mode button:hover, 
-.light-mode .button-like-link:hover {
-  background-color: var(--light-button-primary-hover-background-color);
-}
-
-/*Buttons & Button-like-links: Specific*/
-#lighting-mode-button {
-  border-radius: 50%;
-  font-size: 1.7rem;
-  padding: 12px 17px 10px 17px;
-  margin: 0px;
-}
-#authMenu-link {
-  transition: background-color 0.2s ease, color 0.2s ease;
-  padding: 7px 20px;
-  margin-right: 0px;
-  font-size: 1.2rem;
-}
-
-/*Buttons & Button-like-links In forms & In cards: Global*/
-.light-mode .form-container button, 
-.light-mode .form-container .button-like-link, 
-.light-mode .card-view-container button {
-  background-color: var(--light-button-secondary-background-color); 
-  color: var(--light-secondary-text-color);
-}
-
-.light-mode .form-container button:hover, 
-.light-mode .form-container .button-like-link:hover,
-.light-mode .card-view-container button:hover {
-  background-color: var(--light-button-secondary-hover-background-color);
-}
-
-.dark-mode .form-container button, 
-.dark-mode .form-container .button-like-link,
-.dark-mode .card-view-container button {
-  background-color: var(--dark-button-secondary-background-color); 
-  color: var(--dark-secondary-text-color); 
-}
-
-.dark-mode .form-container button:hover, 
-.dark-mode .form-container .button-like-link:hover,
-.dark-mode .card-view-container button:hover {
-  background-color: var(--dark-button-secondary-hover-background-color);
-}
-
-/*Buttons for confirmation and prompt screens*/
-.logout-confirmation-container button,
-.purchase-confirmation-container,
-.success-prompt-container button,
-.delete-confirmation-container button {
-  transition: background-color 0.2s ease, color 0.2s ease;
-}
-
-.light-mode .logout-confirmation-container button,
-.light-mode .purchase-confirmation-container button,
-.light-mode .success-prompt-container button,
-.light-mode .delete-confirmation-container button {
-  background-color: var(--light-secondary-background-color); 
-  border: 1px solid var(--light-border-color); 
-}
-
-.dark-mode .logout-confirmation-container button,
-.dark-mode .purchase-confirmation-container button,
-.dark-mode .success-prompt-container button,
-.dark-mode .delete-confirmation-container button {
-  background-color: var(--dark-secondary-background-color); /* Dark secondary background color for buttons */
-  border: 1px solid var(--dark-border-color); /* Dark border color for buttons */
-}
-
-.light-mode .logout-confirmation-container button:hover,
-.light-mode .purchase-confirmation-container button:hover,
-.light-mode .success-prompt-container button:hover,
-.light-mode .delete-confirmation-container button:hover {
-  background-color: var(--light-button-primary-hover-background-color); /* Dark mode blue background color on hover */
-  
-}
-
-.dark-mode .logout-confirmation-container button:hover,
-.dark-mode .purchase-confirmation-container button:hover,
-.dark-mode .success-prompt-container button:hover,
-.dark-mode .delete-confirmation-container button:hover {
-  background-color: var(--dark-button-primary-hover-background-color); /* Dark mode blue background color on hover */
-}
-
-/*Links: number links*/
-.light-mode a.number-link {
-  text-decoration: underline;
-  color: var(--light-primary-text-color);
-}
-
-.dark-mode a.number-link {
-  text-decoration: underline;
-  color: var(--dark-primary-text-color);
-}
-
-/*Links: Sidebar Menu*/
-.menu-container a {
-  margin-top: 10px;
-  text-decoration: none;
-  transition: color 0.2s ease;
-}
-
-.light-mode .menu-container a {
-  color: var(--light-primary-text-color); 
-}
-
-.dark-mode .menu-container a {
-  color: var(--dark-primary-text-color);
-}
-
-.menu-container a:hover {
-  border-radius: 5px;
-  padding: 8px;
-  transition: background-color 0.2s ease, color 0.2s ease;
-}
-
-.light-mode .menu-container a:hover {
-  color: var(--light-secondary-text-color);
-  background-color: var(--light-button-secondary-hover-background-color); 
-}
-
-.dark-mode .menu-container a:hover {
-  color: var(--dark-secondary-text-color); 
-  background-color: var(--dark-button-secondary-hover-background-color);
-}
-
-/* Add icons to links */
-.menu-container a::before {  
-  content: attr(data-icon);
-  margin-right: 10px;
-}
 
 /* ||| Dark & Light Global ************************************************/
 
-.dark-mode {
-  background-color: var(--dark-primary-background-color);
-  color: var(--dark-primary-text-color);
-}
-.light-mode {
-  background-color: var(--light-primary-background-color);
-  color: var(--light-primary-text-color);
-}
-
-.dark-mode .Menu {
-  background-color: var(--dark-secondary-background-color);
-  border-right: 2px solid var(--dark-border-color);
-}
-.light-mode .Menu {
-  background-color: var(--light-secondary-background-color);
-  border-right: 2px solid var(--light-border-color);
-}
-
-.dark-mode .Header {
-  border-bottom: 2px solid var(--dark-border-color);
-}
-.light-mode .Header {
-  border-bottom: 2px solid var(--light-border-color);
-}
-
-.dark-mode .Footer {
-  border-top: 2px solid var(--dark-border-color);
-}
-.light-mode .Footer {
-  border-top: 2px solid var(--light-border-color);
-}
 
 /* ||| Footer & Related ************************************************/
 
@@ -425,43 +470,32 @@ button {
 
 /*Global*/
 .home-link-area-container {
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  border-radius: 5px;
-  margin-bottom: 25px;
+  margin-top: 80px;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
-  padding: 5px;
+  justify-content: center;
 }
 
-.parent {
-  height: 140px;
-  width: 560px;
-  font-size: 2.5rem;
-}
-
-.child {
-  height: 100px;
-  width: 400px;
-  font-size: 2rem;
-  border-radius: 20% 10%;
+.home-link-area-container img {
+  max-width: 90%;
+  border: solid 1px;
+  border-radius: 5%;
 }
 
 .home-link-area-container a {
   cursor: pointer;
   text-decoration: none; 
   font-weight: 400;
+  font-size: 2rem;
   color: var(--light-primary-text-color);
 }
 
 .light-mode .home-link-area-container {
-  background: url("/assets/images/logos/layered-steps-haikei_light.png");
   color: var(--light-primary-text-color);
 }
 
 .dark-mode .home-link-area-container {
-  background: url("/assets/images/logos/layered-steps-haikei_dark.png");
   color: var(--dark-primary-text-color);
 }
 
@@ -480,14 +514,14 @@ button {
 /*Home Default, Company, Customer*/
 .HomeContentDefault, .HomeContentCompany, .HomeContentCustomer {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
   justify-content: center;
   margin-top: 30px;
 }
 
 /*Home Admin*/
-.HomeContentAdmin {
+.HomeContentAdmin, .HomeContentCompany, .HomeContentCustomer {
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
@@ -498,6 +532,28 @@ button {
   display: flex;
   flex-direction: column;
   align-items: center;  
+}
+
+.dashboard-stat-container {
+  border: 1px none var(--light-border-color);
+  border-radius: 2%;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  background-color: var(--light-secondary-background-color);
+  padding: 10px;
+  width: 27%;
+  font-size: 2.5rem;
+}
+
+.dashboard-stat-container a {
+  font-size: 8.5rem;
+  margin-top: -20px;
+}
+
+.light-mode .dashboard-stat-container {
+  background-color: var(--light-secondary-background-color);
+}
+.dark-mode .dashboard-stat-container {
+  background-color: var(--dark-secondary-background-color);
 }
 
 /* ||| EmptyView, page404, PageServerDown ************************************************/

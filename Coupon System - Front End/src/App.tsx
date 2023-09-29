@@ -11,7 +11,7 @@ import { selectIsDarkMode } from "./Redux/slices/lightingSlice";
 
 function App() {
   
-  const theme = useSelector(selectIsDarkMode) ? "dark-mode" : "light-mode";
+  const theme = useSelector(selectIsDarkMode) ? "dark" : "light";
 
   return (
     <div className={`App ${theme}`}>
